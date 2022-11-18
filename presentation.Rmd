@@ -45,13 +45,14 @@ style_xaringan(
 
 class: center, middle
 
-## A statement of the overall goal / research question
-
+#DATASET: COVID-19 Dataset
+#which was found on Kaggle
+https://www.kaggle.com/datasets/imdevskp/corona-virus-report?search=COVID-19+DATASET
 ---
 
 class: inverse, center, middle
 
-# Section title
+# 
 
 ---
 
