@@ -21,6 +21,7 @@ library(tidyverse)
 library(palmerpenguins)
 library(knitr)
 library(xaringanthemer)
+library(lubridate)
 ```
 
 ```{r setup, include=FALSE}
@@ -52,15 +53,20 @@ https://www.kaggle.com/datasets/imdevskp/corona-virus-report?search=COVID-19+DAT
 
 class: inverse, center, middle
 
-# 
+# Origin
 
+Three years agp,a new coronavirus designated 2019-nCoV was first identified in Wuhan, the capital of China's Hubei province
+Transmission rate (rate of infection) appeared to escalate in mid-January 2020
+As of 30 January 2020, approximately 8,243 cases have been confirmed
 ---
+This is the trend of the confirmed number in 2020.
+```{r echo=FALSE}
+full_grouped %>%
+ggplot(aes(x=Date,y=Confirmed,color=`WHO Region`)) +
+geom_line()
+```
 
-# Hello World
-
-- Click the `Knit` button to compile your presentation
-
-- Make sure to commit and push all resulting files to your GitHub repo
+From this graph,it is clear that COVID-19 began to spread in the world in April 2020.
 
 ---
 
