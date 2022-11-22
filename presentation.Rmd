@@ -40,15 +40,25 @@ usa_county_wise <- read_csv("usa_county_wise.csv")
 
 ```{r include=FALSE}
 style_xaringan(
-  title_slide_background_image = "img/confetti.jpg"
+  title_slide_background_image = ""
 )
 ```
 
-class: center, middle
+class: center, middle,inverse
 
 #DATASET: COVID-19 Dataset
 #which was found on Kaggle
 https://www.kaggle.com/datasets/imdevskp/corona-virus-report?search=COVID-19+DATASET
+---
+
+class: inverse
+
+#This is a glimpse of our dataset
+```{r echo=FALSE}
+glimpse(full_grouped)
+```
+
+
 ---
 
 class: inverse, center, middle
@@ -59,14 +69,16 @@ Three years agp,a new coronavirus designated 2019-nCoV was first identified in W
 Transmission rate (rate of infection) appeared to escalate in mid-January 2020
 As of 30 January 2020, approximately 8,243 cases have been confirmed
 ---
-This is the trend of the confirmed number in 2020.
+class: inverse
+
+A totally trend of the confirmed number in 2020 is showed below.
 ```{r echo=FALSE}
 full_grouped %>%
 ggplot(aes(x=Date,y=Confirmed,color=`WHO Region`)) +
 geom_line()
 ```
 
-From this graph,it is clear that COVID-19 began to spread in the world in April 2020.
+From this graph,it is clear that COVID-19 began to spread in the world in the April of 2020.
 
 ---
 

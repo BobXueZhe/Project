@@ -4,7 +4,7 @@
     <title>COVID-19</title>
     <meta charset="utf-8" />
     <meta name="author" content="Du Shi,Zhe Xue,Kunning Zhang,Zhaojun Meng,Wenhui Zhang" />
-    <meta name="date" content="2022-11-20" />
+    <meta name="date" content="2022-11-22" />
     <script src="libs/header-attrs-2.16/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
@@ -22,7 +22,7 @@ class: center, middle, inverse, title-slide
 ### University of Edinburgh
 ]
 .date[
-### 2022-11-20
+### 2022-11-22
 ]
 
 ---
@@ -36,11 +36,33 @@ class: center, middle, inverse, title-slide
 
 
 
-class: center, middle
+class: center, middle,inverse
 
 #DATASET: COVID-19 Dataset
 #which was found on Kaggle
 https://www.kaggle.com/datasets/imdevskp/corona-virus-report?search=COVID-19+DATASET
+---
+
+class: inverse
+
+#This is a glimpse of our dataset
+
+```
+## Rows: 35,156
+## Columns: 10
+## $ Date             &lt;date&gt; 2020-01-22, 2020-01-22, 2020-01-22, 2020-01-22, 2020…
+## $ `Country/Region` &lt;chr&gt; "Afghanistan", "Albania", "Algeria", "Andorra", "Ango…
+## $ Confirmed        &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ Deaths           &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ Recovered        &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ Active           &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ `New cases`      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ `New deaths`     &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ `New recovered`  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
+## $ `WHO Region`     &lt;chr&gt; "Eastern Mediterranean", "Europe", "Africa", "Europe"…
+```
+
+
 ---
 
 class: inverse, center, middle
@@ -51,10 +73,12 @@ Three years agp,a new coronavirus designated 2019-nCoV was first identified in W
 Transmission rate (rate of infection) appeared to escalate in mid-January 2020
 As of 30 January 2020, approximately 8,243 cases have been confirmed
 ---
-This is the trend of the confirmed number in 2020.
-&lt;img src="presentation_files/figure-html/unnamed-chunk-2-1.png" width="80%" /&gt;
+class: inverse
 
-From this graph,it is clear that COVID-19 began to spread in the world in April 2020.
+A totally trend of the confirmed number in 2020 is showed below.
+&lt;img src="presentation_files/figure-html/unnamed-chunk-3-1.png" width="80%" /&gt;
+
+From this graph,it is clear that COVID-19 began to spread in the world in the April of 2020.
 
 ---
 
@@ -126,7 +150,7 @@ print(ave)
 - goes here
 ]
 .pull-right[
-&lt;img src="presentation_files/figure-html/unnamed-chunk-3-1.png" width="100%" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-4-1.png" width="100%" /&gt;
 ]
 
 ---
