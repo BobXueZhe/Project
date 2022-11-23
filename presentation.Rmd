@@ -30,12 +30,12 @@ knitr::opts_chunk$set(fig.retina = 3, dpi = 300, fig.width = 6, fig.asp = 0.618,
 ```
 
 ```{r load-data, include=FALSE}
-worldometer_data <- read_csv("worldometer_data.csv")
-country_wise_latest <- read_csv("country_wise_latest.csv")
-covid_19_clean_complete <- read_csv("covid_19_clean_complete.csv")
-day_wise <- read_csv("day_wise.csv")
-full_grouped <- read_csv("full_grouped.csv")
-usa_county_wise <- read_csv("usa_county_wise.csv")
+worldometer_data <- read_csv("data/worldometer_data.csv")
+usa_county_wise <- read_csv("data/usa_county_wise.csv")
+full_grouped <- read_csv("data/full_grouped.csv")
+day_wise <- read_csv("data/day_wise.csv")
+covid_19_clean_complete <- read_csv("data/covid_19_clean_complete.csv")
+country_wise_latest <- read_csv("data/country_wise_latest.csv")
 ```
 
 ```{r include=FALSE}
@@ -65,7 +65,7 @@ class: inverse, center, middle
 
 # Origin
 
-Three years agp,a new coronavirus designated 2019-nCoV was first identified in Wuhan, the capital of China's Hubei province
+Three years ago,a new coronavirus designated 2019-nCoV was first identified in Wuhan, the capital of China's Hubei province
 Transmission rate (rate of infection) appeared to escalate in mid-January 2020
 As of 30 January 2020, approximately 8,243 cases have been confirmed
 ---
@@ -78,13 +78,11 @@ ggplot(aes(x=Date,y=Confirmed,color=`WHO Region`)) +
 geom_line()
 ```
 
-From this graph,it is clear that COVID-19 began to spread in the world in the April of 2020.
+From this graph,it is clear that COVID-19 began to spread in the world in April of 2020.
 
 ---
 
 class: inverse, middle, center
-
-# Using xaringan
 
 ---
 
@@ -123,9 +121,7 @@ or text in two columns $^*$
 # Code
 
 ```{r boring-analysis}
-# a boring analysis
-ave <- mean(cars$dist)
-print(ave)
+
 ```
 
 ---
