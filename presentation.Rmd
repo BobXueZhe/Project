@@ -83,18 +83,24 @@ From this graph,it is clear that COVID-19 began to spread in the world in April 
 ---
 
 class: inverse, middle, center
+#1.
 
 ---
 
-# xaringan
+# Confirmed Cases Over Time
+```{r echo=FALSE}
+country_wise_latest %>%
+  arrange(desc(Confirmed)) %>%
+  slice(1:15) %>%
+  ggplot(aes(x = Confirmed , y = `Country/Region`,fill = `WHO Region`)) +
+  geom_col()+
+  geom_text(aes(label = Confirmed), 
+            vjust = 2, 
+            colour = "black") +
+  coord_cartesian(xlim = c(0, 2500000))
+             
+```
 
-- The presentation is created using the `xaringan` package
-
-- Use `---` to separate slides and `--` for incremental builds
-
---
-
-- Like this
 
 ---
 
