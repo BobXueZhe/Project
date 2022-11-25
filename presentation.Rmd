@@ -100,18 +100,20 @@ class: inverse, middle, center
 
 ---
 
-# Confirmed Cases Over Time
+# Top 15 countries 
 ```{r echo=FALSE}
 country_wise_latest %>%
   arrange(desc(Confirmed)) %>%
   slice(1:15) %>%
-  ggplot(aes(x = Confirmed , y = `Country/Region`,fill = `WHO Region`)) +
+  ggplot(aes(x = Confirmed , y = reorder(`Country/Region`,Confirmed),fill = `WHO Region`)) +
   geom_col()+
   geom_text(aes(label = Confirmed), 
-            vjust = 2, 
+            vjust = 0,
+            size = 3,
             colour = "black") +
-  coord_cartesian(xlim = c(0, 2500000))
-             
+  labs(title = "Confirmed Cases Worldwide",
+       y = "Country",
+       x = "Number of confirmed")
 ```
 
 
