@@ -1,7 +1,7 @@
 ---
 title: "COVID-19"
 subtitle: ""
-author: "Du Shi,Zhe Xue,Kunning Zhang,Zhaojun Meng,Wenhui Zhang"
+author: "Du Shi,Zhe Xue,Kunning Zhang,Wenhui Zhang,Zhaojun Meng"
 institute: "University of Edinburgh"
 date: "`r Sys.Date()`"
 output:
@@ -22,6 +22,7 @@ library(palmerpenguins)
 library(knitr)
 library(xaringanthemer)
 library(lubridate)
+library(tidymodels)
 ```
 
 ```{r setup, include=FALSE}
@@ -36,6 +37,7 @@ full_grouped <- read_csv("data/full_grouped.csv")
 day_wise <- read_csv("data/day_wise.csv")
 covid_19_clean_complete <- read_csv("data/covid_19_clean_complete.csv")
 country_wise_latest <- read_csv("data/country_wise_latest.csv")
+qt <- read_csv("qt.csv")
 ```
 
 ```{r include=FALSE}
@@ -47,11 +49,13 @@ style_xaringan(
 class: center, middle,inverse
 
 #DATASET: COVID-19 Dataset
-#which was found on Kaggle
+#Covid-19 Temperature, Oxygen & Pulse Rate readings
+#which were found on Kaggle
 https://www.kaggle.com/datasets/imdevskp/corona-virus-report?search=COVID-19+DATASET
+https://www.kaggle.com/datasets/rishanmascarenhas/covid19-temperatureoxygenpulse-rate
 ---
-
 class: inverse
+
 
 #This is a glimpse of our dataset
 ```{r echo=FALSE}
@@ -60,35 +64,38 @@ glimpse(full_grouped)
 ---
 class: inverse
 
-
 ```{r echo=FALSE}
 glimpse(country_wise_latest)
 ```
 ---
 class: inverse
 
-
-
 ```{r echo=FALSE}
 glimpse(usa_county_wise)
+```
+
+---
+class: inverse
+
+```{r echo=FALSE}
+glimpse(qt)
 ```
 ---
 
 class: inverse, center, middle
-
-# Origin
-
+#ORIGIN
 Three years ago,a new coronavirus designated 2019-nCoV was first identified in Wuhan, the capital of China's Hubei province
 Transmission rate (rate of infection) appeared to escalate in mid-January 2020
 As of 30 January 2020, approximately 8,243 cases have been confirmed
 ---
-class: inverse
+class:inverse
 
 A totally trend of the confirmed number in 2020 is showed below.
 ```{r echo=FALSE}
 full_grouped %>%
 ggplot(aes(x=Date,y=Confirmed,color=`WHO Region`)) +
 geom_line()
+       
 ```
 
 From this graph,it is clear that COVID-19 began to spread in the world in April of 2020.
@@ -96,11 +103,13 @@ From this graph,it is clear that COVID-19 began to spread in the world in April 
 ---
 
 class: inverse, middle, center
-#1.
+#1.The country which was affected most.
 
 ---
+class:inverse
+Top 15 countries
 
-# Top 15 countries 
+
 ```{r echo=FALSE}
 country_wise_latest %>%
   arrange(desc(Confirmed)) %>%
@@ -115,54 +124,64 @@ country_wise_latest %>%
        y = "Country",
        x = "Number of confirmed")
 ```
+---
+class:inverse,middle,center
+
+#2.
+
 
 
 ---
-
-# Layouts
-
-You can use plain text
-
-- or bullet points
-
-.pull-left[
-or text in two columns $^*$
-]
-.pull-right[
-- like
-- this
-]
-
-.footnote[
-[*] And add footnotes
-]
+class:inverse
 
 ---
+class:inverse,middle,center
+#3.Temperature, Oxygen and Pulse Rate readings of whether a patient was Positive or Negative.
 
-# Code
+---
+class:inverse
 
-```{r boring-analysis}
+```{r echo=FALSE}
+qt <- qt %>%
+  select(Oxygen,PulseRate,Temperature,Result) %>%
+  drop_na()
+
+set.seed(1234)
+qt_split <- initial_split(qt)
+qt_train <- training(qt_split)
+qt_test  <- testing(qt_split)
+
+qt_rec_1 <- recipe(Result ~ ., data = qt)%>%
+  step_dummy(all_nominal(), -all_outcomes())
+
+qt_spec_1 <- logistic_reg() %>% 
+  set_engine("glm")
+  
+qt_wflow_1 <- workflow() %>% 
+  add_model(qt_spec_1) %>% 
+  add_recipe(qt_rec_1)
+
+qt_fit_1 <- qt_wflow_1%>% 
+fit(data = qt_train)
+tidy(qt_fit_1)
+
 
 ```
 
+The probability of COVID-19 positive = exp(32.38560261 + (-1.14948473)*Oxygen + 0.01447323*Pulse Rate + 0.72863310*Temperature)
 ---
 
-# Plots
+# Plots 
 
 ```{r recode-species, echo = FALSE}
-# In this chunk I'm doing a bunch of analysis that I don't want to present 
-# in my slides. But I need the resulting data frame for a plot I want to present.
-iris_modified <- iris %>%
-  mutate(Species = fct_other(Species, keep = "setosa"))
+6
 ```
 
 ```{r plot-iris, echo = FALSE}
 # Code hidden with echo = FALSE
 # Uses modified iris dataset from previous chunk
 # Play around with height and width until you're happy with the look
-ggplot(data = iris_modified, mapping = aes(x = Sepal.Width, y = Sepal.Length, color = Species)) +
-  geom_point() + 
-  theme_minimal() # theme options: https://ggplot2.tidyverse.org/reference/ggtheme.html
+
 ```
 
 ---
@@ -223,8 +242,7 @@ Limitations:
 
 1. The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting `$$` must appear in the very beginning of a line, followed immediately by a non-space character, and the ending `$$` must be at the end of a line, led by a non-space character;
 
-1. There should not be spaces after the opening `$` or before the closing `$`.
-
+1. There should not be spaces after the opening `$` or before the clos
 1. Math does not work on the title slide (see [#61](https://github.com/yihui/xaringan/issues/61) for a workaround).
 
 ---

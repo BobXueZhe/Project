@@ -3,7 +3,7 @@
   <head>
     <title>COVID-19</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Du Shi,Zhe Xue,Kunning Zhang,Zhaojun Meng,Wenhui Zhang" />
+    <meta name="author" content="Du Shi,Zhe Xue,Kunning Zhang,Wenhui Zhang,Zhaojun Meng" />
     <meta name="date" content="2022-11-27" />
     <script src="libs/header-attrs-2.16/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
@@ -16,7 +16,7 @@ class: center, middle, inverse, title-slide
 # COVID-19
 ]
 .author[
-### Du Shi,Zhe Xue,Kunning Zhang,Zhaojun Meng,Wenhui Zhang
+### Du Shi,Zhe Xue,Kunning Zhang,Wenhui Zhang,Zhaojun Meng
 ]
 .institute[
 ### University of Edinburgh
@@ -39,11 +39,13 @@ class: center, middle, inverse, title-slide
 class: center, middle,inverse
 
 #DATASET: COVID-19 Dataset
-#which was found on Kaggle
+#Covid-19 Temperature, Oxygen &amp; Pulse Rate readings
+#which were found on Kaggle
 https://www.kaggle.com/datasets/imdevskp/corona-virus-report?search=COVID-19+DATASET
+https://www.kaggle.com/datasets/rishanmascarenhas/covid19-temperatureoxygenpulse-rate
 ---
-
 class: inverse
+
 
 #This is a glimpse of our dataset
 
@@ -63,7 +65,6 @@ class: inverse
 ```
 ---
 class: inverse
-
 
 
 ```
@@ -89,8 +90,6 @@ class: inverse
 class: inverse
 
 
-
-
 ```
 ## Rows: 627,920
 ## Columns: 14
@@ -109,72 +108,85 @@ class: inverse
 ## $ Confirmed      &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 ## $ Deaths         &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0…
 ```
+
+---
+class: inverse
+
+
+```
+## Rows: 10,002
+## Columns: 5
+## $ ID          &lt;dbl&gt; 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …
+## $ Oxygen      &lt;dbl&gt; 98, 96, 95, 97, 88, 94, 88, 91, 93, 86, 94, 98, 86, 90, 93…
+## $ PulseRate   &lt;dbl&gt; 65, 92, 92, 56, 94, 100, 81, 79, 59, 117, 75, 46, 85, 55, …
+## $ Temperature &lt;dbl&gt; 95, 95, 99, 96, 98, 103, 104, 95, 101, 99, 95, 96, 98, 101…
+## $ Result      &lt;chr&gt; "Negative", "Negative", "Negative", "Negative", "Positive"…
+```
 ---
 
 class: inverse, center, middle
-
-# Origin
-
+#ORIGIN
 Three years ago,a new coronavirus designated 2019-nCoV was first identified in Wuhan, the capital of China's Hubei province
 Transmission rate (rate of infection) appeared to escalate in mid-January 2020
 As of 30 January 2020, approximately 8,243 cases have been confirmed
 ---
-class: inverse
+class:inverse
 
 A totally trend of the confirmed number in 2020 is showed below.
-&lt;img src="presentation_files/figure-html/unnamed-chunk-5-1.png" width="80%" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-6-1.png" width="80%" /&gt;
 
 From this graph,it is clear that COVID-19 began to spread in the world in April of 2020.
 
 ---
 
 class: inverse, middle, center
-#1.
+#1.The country which was affected most.
 
 ---
-
-<<<<<<< HEAD
-# Confirmed Cases Over Time
-&lt;img src="presentation_files/figure-html/unnamed-chunk-4-1.png" width="80%" /&gt;
-=======
-# Top 15 countries 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-6-1.png" width="80%" /&gt;
->>>>>>> 307e851bbddafb08f9c051520bbec9ddc04a4a1b
+class:inverse
+Top 15 countries
 
 
+&lt;img src="presentation_files/figure-html/unnamed-chunk-7-1.png" width="80%" /&gt;
 ---
+class:inverse,middle,center
 
-# Layouts
-
-You can use plain text
-
-- or bullet points
-
-.pull-left[
-or text in two columns `\(^*\)`
-]
-.pull-right[
-- like
-- this
-]
-
-.footnote[
-[*] And add footnotes
-]
-
----
-
-# Code
+#2.
 
 
 
 ---
+class:inverse
 
-# Plots
+---
+class:inverse,middle,center
+#3.Temperature, Oxygen and Pulse Rate readings of whether a patient was Positive or Negative.
+
+---
+class:inverse
 
 
+```
+## # A tibble: 4 × 5
+##   term        estimate std.error statistic   p.value
+##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
+## 1 (Intercept)  32.4      1.83        17.7  4.68e- 70
+## 2 Oxygen       -1.15     0.0320     -35.9  1.80e-282
+## 3 PulseRate     0.0145   0.00193      7.50 6.44e- 14
+## 4 Temperature   0.729    0.0254      28.6  2.30e-180
+```
 
-&lt;img src="presentation_files/figure-html/plot-iris-1.png" width="80%" /&gt;
+The probability of COVID-19 positive = exp(32.38560261 + (-1.14948473)*Oxygen + 0.01447323*Pulse Rate + 0.72863310*Temperature)
+---
+
+# Plots 
+
+
+```
+## [1] 6
+```
+
+
 
 ---
 
@@ -185,11 +197,7 @@ or text in two columns `\(^*\)`
 - goes here
 ]
 .pull-right[
-<<<<<<< HEAD
-&lt;img src="presentation_files/figure-html/unnamed-chunk-5-1.png" width="100%" /&gt;
-=======
-&lt;img src="presentation_files/figure-html/unnamed-chunk-7-1.png" width="100%" /&gt;
->>>>>>> 307e851bbddafb08f9c051520bbec9ddc04a4a1b
+&lt;img src="presentation_files/figure-html/unnamed-chunk-9-1.png" width="100%" /&gt;
 ]
 
 ---
@@ -285,8 +293,7 @@ Limitations:
 
 1. The source code of a LaTeX math expression must be in one line, unless it is inside a pair of double dollar signs, in which case the starting `$$` must appear in the very beginning of a line, followed immediately by a non-space character, and the ending `$$` must be at the end of a line, led by a non-space character;
 
-1. There should not be spaces after the opening `$` or before the closing `$`.
-
+1. There should not be spaces after the opening `$` or before the clos
 1. Math does not work on the title slide (see [#61](https://github.com/yihui/xaringan/issues/61) for a workaround).
 
 ---
