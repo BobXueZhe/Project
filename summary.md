@@ -18,3 +18,31 @@ In April, Americas region has recorded plenty of patients and became the hardest
 In July, there has been 16480485 confirmed in the world, however, Americas region took up more than a half. 
 
 So in the following details, we would pay more attention to Americas region,especially USA. We will also use death and recovered variables to do some data visualization.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Predict probability of COVID-19 positive
+
+For this question, We want to use Temperature, Oxygen and Pulse Rate readings to predict the probability of a person who had COVID-19 positive. The data set contains 10,000 observations after removing NA, and we select some useful variables to predict.
+
+It should be noted that, the response variable and the explanatory variable are not linear, it has Non-constant variance and is usually fixable by transforming the response (y) variable,so we choose Logistic Regression Model.Then we get the probability of COVID-19 positive = exp(32.38560261 + (-1.14948473)*Oxygen + 0.01447323*Pulse Rate + 0.72863310*Temperature),that means the probability of COVID-19 positive is proportional to temperature and Pulse Rate and inversely proportional to Oxygen.(The reason why it's inversely proportional to Oxygen is because the Oxygen can keep blood in a high-energy state,through the lungs into the capillaries, has a certain role in human metabolism.)
+
+Slope - Oxygen: All else held constant, for every one percent increase in Oxygen, we would expect the probability of COVID-19 positive to be lower, on average, by 1.14948473 percent.
+Slope - Pulse Rate: All else held constant,the Pulse Rate increases by 1 beat per minute, we would expect the probability of COVID-19 positive to be higher, on average, by 0.01447323 percent.
+Slope - Temperature: All else held constant, for every one degree Fahrenheit increase in Temperature, we would expect the probability of COVID-19 positive to be higher, on average, by 0.72863310 percent.
+Intercept: Doesn't make sense in context.
+

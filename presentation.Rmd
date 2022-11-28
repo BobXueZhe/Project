@@ -173,6 +173,14 @@ tidy(qt_fit_1)
 ```
 
 The probability of COVID-19 positive = exp(32.38560261 + (-1.14948473)*Oxygen + 0.01447323*Pulse Rate + 0.72863310*Temperature)
+
+Slope - Oxygen: All else held constant, for every one percent increase in Oxygen, we would expect the probability of COVID-19 positive to be lower, on average, by 1.14948473 percent.
+
+Slope - Pulse Rate: All else held constant,the Pulse Rate increases by 1 beat per minute, we would expect the probability of COVID-19 positive to be higher, on average, by 0.01447323 percent.
+
+Slope - Temperature: All else held constant, for every one degree Fahrenheit increase in Temperature, we would expect the probability of COVID-19 positive to be higher, on average, by 0.72863310 percent.
+
+Intercept: Doesn't make sense in context.
 ---
 
 # Plots 
