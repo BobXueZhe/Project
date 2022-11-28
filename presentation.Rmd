@@ -87,7 +87,7 @@ class: inverse, center, middle
 Three years ago,a new coronavirus designated 2019-nCoV was first identified in Wuhan, the capital of China's Hubei province.
 Transmission rate (rate of infection) appeared to escalate in mid-January 2020.
 As of 30 January 2020, approximately 8,243 cases have been confirmed.
-So we will work with the situation of COVID-19 in 2020 and the physical condition of patients.
+So we will talk about the situation of COVID-19 in 2020 and the physical condition of patients.
 ---
 class: inverse, middle, center
 #1.The country which was affected most.
