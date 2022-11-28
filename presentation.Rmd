@@ -57,7 +57,11 @@ https://www.kaggle.com/datasets/rishanmascarenhas/covid19-temperatureoxygenpulse
 class: inverse
 
 
+<<<<<<< HEAD
 #These are glimpse of our dataset
+=======
+#These are glimpses of our dataset
+>>>>>>> 7bcba6c625902365ad4f43c5daf90002d79beaf9
 ```{r echo=FALSE}
 glimpse(full_grouped)
 ```
