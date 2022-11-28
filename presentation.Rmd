@@ -124,6 +124,10 @@ country_wise_latest %>%
        y = "Country",
        x = "Number of confirmed")
 ```
+
+
+
+
 ---
 class:inverse,middle,center
 
