@@ -35,7 +35,7 @@ So in the following details, we would pay more attention to Americas region,espe
 
 
 
-## Predict probability of COVID-19 positive
+## Predicting the probability of COVID-19 positive
 
 For this question, We want to use Temperature, Oxygen and Pulse Rate readings to predict the probability of a person who had COVID-19 positive. The data set contains 10,000 observations after removing NA, and we select some useful variables to predict.
 

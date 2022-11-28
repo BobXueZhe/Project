@@ -140,7 +140,7 @@ class:inverse
 
 ---
 class:inverse,middle,center
-#3.Temperature, Oxygen and Pulse Rate readings of whether a patient was Positive or Negative.
+#3.Predicting the probability of COVID-19 positive
 
 ---
 class:inverse
