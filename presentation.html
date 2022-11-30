@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="Du Shi,Zhe Xue,Kunning Zhang,Wenhui Zhang,Zhaojun Meng" />
     <meta name="date" content="2022-11-30" />
-    <script src="libs/header-attrs-2.18/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.16/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -157,8 +157,8 @@ Top 15 countries in the number of confirmed cases
 ---
 class:inverse
 Top 15 countries in the number of deaths
-
 &lt;img src="presentation_files/figure-html/unnamed-chunk-9-1.png" width="80%" /&gt;
+
 From all these graphs above,it is clear that COVID-19 began to spread in the world in April of 2020 and Americas region is the hardest-hit area in both deaths and confirmed number.
 ---
 class:inverse,middle,center
@@ -176,6 +176,7 @@ class:inverse,middle,center
 
 ---
 class:inverse
+#Modeling
 
 
 ```
@@ -188,15 +189,52 @@ class:inverse
 ## 4 Temperature   0.729    0.0254      28.6  2.30e-180
 ```
 
-The probability of COVID-19 positive = exp(32.38560261 + (-1.14948473)*Oxygen + 0.01447323*Pulse Rate + 0.72863310*Temperature)
+The probability of COVID-19 positive = 
 
-Slope - Oxygen: All else held constant, for every one percent increase in Oxygen, we would expect the probability of COVID-19 positive to be lower, on average, by 1.14948473 percent.
+exp(32.4 + (-1.15) * Oxygen +  0.0145	* Pulse Rate + 0.729 * Temperature)
+_______
+1+exp(32.4 + (-1.15) * Oxygen +  0.0145	* Pulse Rate + 0.729 * Temperature)
 
-Slope - Pulse Rate: All else held constant,the Pulse Rate increases by 1 beat per minute, we would expect the probability of COVID-19 positive to be higher, on average, by 0.01447323 percent.
+---
+class:inverse
+#Model checking
 
-Slope - Temperature: All else held constant, for every one degree Fahrenheit increase in Temperature, we would expect the probability of COVID-19 positive to be higher, on average, by 0.72863310 percent.
 
-Intercept: Doesn't make sense in context.
+```
+## # A tibble: 2,500 × 6
+##    .pred_Negative .pred_Positive Oxygen PulseRate Temperature Result  
+##             &lt;dbl&gt;          &lt;dbl&gt;  &lt;dbl&gt;     &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt;   
+##  1       0.999          0.000603     96        92          95 Negative
+##  2       1.00           0.000235     97        56          96 Negative
+##  3       0.000280       1.00         88        81         104 Positive
+##  4       0.865          0.135        91        79          95 Negative
+##  5       0.00209        0.998        86        85          98 Positive
+##  6       0.997          0.00254      97       120          98 Negative
+##  7       0.993          0.00733      96       114          98 Negative
+##  8       0.0115         0.988        89       104         100 Positive
+##  9       0.978          0.0222       99       128         104 Negative
+## 10       0.758          0.242        91        78          96 Negative
+## # … with 2,490 more rows
+```
+
+---
+class:inverse
+#ROC curves
+&lt;img src="presentation_files/figure-html/unnamed-chunk-12-1.png" width="80%" /&gt;
+
+---
+class:inverse
+#the areas under the ROC curves
+
+```
+## # A tibble: 1 × 3
+##   .metric .estimator .estimate
+##   &lt;chr&gt;   &lt;chr&gt;          &lt;dbl&gt;
+## 1 roc_auc binary         0.980
+```
+
+
+
 ---
 
 # Plots 
@@ -217,7 +255,7 @@ Intercept: Doesn't make sense in context.
 - goes here
 ]
 .pull-right[
-&lt;img src="presentation_files/figure-html/unnamed-chunk-11-1.png" width="100%" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-14-1.png" width="100%" /&gt;
 ]
 
 ---

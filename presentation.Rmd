@@ -149,7 +149,6 @@ country_wise_latest %>%
 ---
 class:inverse
 Top 15 countries in the number of deaths
-
 ```{r echo=FALSE}
 country_wise_latest %>%
   arrange(desc(Deaths)) %>%
@@ -164,6 +163,7 @@ country_wise_latest %>%
        y = "Country",
        x = "Number of deaths")
 ```
+
 From all these graphs above,it is clear that COVID-19 began to spread in the world in April of 2020 and Americas region is the hardest-hit area in both deaths and confirmed number.
 ---
 class:inverse,middle,center
@@ -181,6 +181,7 @@ class:inverse,middle,center
 
 ---
 class:inverse
+#Modeling
 
 ```{r echo=FALSE}
 qt <- qt %>%
@@ -192,8 +193,7 @@ qt_split <- initial_split(qt)
 qt_train <- training(qt_split)
 qt_test  <- testing(qt_split)
 
-qt_rec_1 <- recipe(Result ~ ., data = qt)%>%
-  step_dummy(all_nominal(), -all_outcomes())
+qt_rec_1 <- recipe(Result ~ ., data = qt)
 
 qt_spec_1 <- logistic_reg() %>% 
   set_engine("glm")
@@ -206,18 +206,47 @@ qt_fit_1 <- qt_wflow_1%>%
 fit(data = qt_train)
 tidy(qt_fit_1)
 
-
 ```
 
-The probability of COVID-19 positive = exp(32.38560261 + (-1.14948473)*Oxygen + 0.01447323*Pulse Rate + 0.72863310*Temperature)
+The probability of COVID-19 positive = 
 
-Slope - Oxygen: All else held constant, for every one percent increase in Oxygen, we would expect the probability of COVID-19 positive to be lower, on average, by 1.14948473 percent.
+exp(32.4 + (-1.15) * Oxygen +  0.0145	* Pulse Rate + 0.729 * Temperature)
+_______
+1+exp(32.4 + (-1.15) * Oxygen +  0.0145	* Pulse Rate + 0.729 * Temperature)
 
-Slope - Pulse Rate: All else held constant,the Pulse Rate increases by 1 beat per minute, we would expect the probability of COVID-19 positive to be higher, on average, by 0.01447323 percent.
+---
+class:inverse
+#Model checking
 
-Slope - Temperature: All else held constant, for every one degree Fahrenheit increase in Temperature, we would expect the probability of COVID-19 positive to be higher, on average, by 0.72863310 percent.
+```{r echo=FALSE}
+qt_pred<- predict(qt_fit_1, qt_test, type = "prob") %>% 
+  bind_cols(qt_test)
+qt_pred
+```
 
-Intercept: Doesn't make sense in context.
+---
+class:inverse
+#ROC curves
+```{r echo=FALSE}
+qt_pred %>%
+  roc_curve(truth = as.factor(Result),
+            .pred_Positive,
+            event_level = "second") %>%
+  autoplot()
+```
+
+---
+class:inverse
+#the areas under the ROC curves
+```{r echo=FALSE}
+qt_pred %>%
+  roc_auc(truth = as.factor(Result),
+          .pred_Positive,
+          event_level = "second")
+```
+
+
+
 ---
 
 # Plots 
