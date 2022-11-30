@@ -5,9 +5,9 @@ COVID-19
 
 ## ORIGIN OF COVID-19
 
-Three years ago, a new kind of pneumonia named COVID-19 appeared in Wuhan, the capital of China's Hubei province, and began to spread in the world. People who caught COVID-19 always have a high temperature or shivering and a continuous cough.
+Three years ago, a new kind of pneumonia named COVID-19 appeared in Wuhan, the capital of China's Hubei province, and began to spread in the world. People who caught COVID-19 always have a high temperature or shivering and a continuous cough.Transmission rate appeared to escalate in mid-Tanuary 2020. As of 30 January 2020, approximately 8,243 cases have been confirmed. People who got COVID always have a fever and bad cough. Also,there are obvious changes in patients' vital signs.
 
-To find the origin of COVID-19, we got the dataset from the Kaggle website. It contains the number of confirmed, death, recovered and active people from January to the end of July in 2020 in different region.
+To find more information of COVID-19, we got two dataset from the Kaggle website. COVID-19 DATASET contains the number of confirmed, death, recovered and active people from January to the end of July in 2020 in different region. Covid-19 Temperature, Oxygen & Pulse Rate readings contains three vital signs of 10000 patients.
 
 ## GLIMPSE OF DATA
 
