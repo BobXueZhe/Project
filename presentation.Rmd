@@ -169,9 +169,26 @@ class:inverse,middle,center
 ---
 class:inverse
 
+
+
+
+
 ---
 class:inverse,middle,center
-#3.Predicting the probability of COVID-19 positive
+#3.
+
+
+
+---
+class:inverse
+
+
+
+
+
+---
+class:inverse,middle,center
+#4.Predicting the probability of COVID-19 positive
 
 ---
 class:inverse
@@ -240,3 +257,6 @@ qt_pred %>%
 ```
 
 ---
+
+
+#Thanks！
