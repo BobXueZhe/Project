@@ -95,8 +95,8 @@ class: inverse, middle, center
 Graphing the number of confirmed cases and deaths.This gives us a big picture of the past COVID-19 in 2020.
 ---
 class:inverse
-
 The totally trend of the confirmed cases and deaths number in 2020 is showed in following two graphs.
+
 ```{r echo=FALSE}
 full_grouped %>%
   ggplot(aes(x = Date , y = Confirmed)) +
@@ -112,8 +112,8 @@ full_grouped %>%
 
 ---
 class:inverse
-
 The totally trend of the confirmed cases number in 2020 is showed below.
+
 ```{r echo=FALSE}
 full_grouped %>%
   ggplot(aes(x = Date , y = Deaths)) +
