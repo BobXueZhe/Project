@@ -48,8 +48,9 @@ style_xaringan(
 
 class: center, middle,inverse
 
-#DATASET: COVID-19 Dataset
-#Covid-19 Temperature, Oxygen & Pulse Rate readings
+#DATASET:
+#1 COVID-19 Dataset
+#2 Covid-19 Temperature, Oxygen & Pulse Rate readings
 #which were found on Kaggle
 https://www.kaggle.com/datasets/imdevskp/corona-virus-report?search=COVID-19+DATASET
 https://www.kaggle.com/datasets/rishanmascarenhas/covid19-temperatureoxygenpulse-rate
@@ -71,13 +72,6 @@ glimpse(country_wise_latest)
 class: inverse
 
 ```{r echo=FALSE}
-glimpse(usa_county_wise)
-```
-
----
-class: inverse
-
-```{r echo=FALSE}
 glimpse(qt)
 ```
 ---
@@ -85,9 +79,9 @@ glimpse(qt)
 class: inverse, center, middle
 #ORIGIN
 Three years ago,a new coronavirus designated 2019-nCoV was first identified in Wuhan, the capital of China's Hubei province.
-Transmission rate (rate of infection) appeared to escalate in mid-January 2020.
 As of 30 January 2020, approximately 8,243 cases have been confirmed.
-So we will talk about the situation of COVID-19 in 2020 and the physical condition of patients.
+People who got COVID always have a fever and bad cough.
+Also,there are obvious changes in patients' vital signs.
 ---
 class: inverse, middle, center
 #1.World overview.
