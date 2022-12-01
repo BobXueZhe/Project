@@ -38,7 +38,8 @@ full_grouped <- read_csv("data/full_grouped.csv")
 day_wise <- read_csv("data/day_wise.csv")
 covid_19_clean_complete <- read_csv("data/covid_19_clean_complete.csv")
 country_wise_latest <- read_csv("data/country_wise_latest.csv")
-qt <- read_csv("qt.csv")
+qt <- read_csv("data/qt.csv")
+usa_county_wise1 <- read_csv("data/usa_county_wise1.csv")
 ```
 
 ```{r include=FALSE}
@@ -271,3 +272,14 @@ qt_pred %>%
 class:inverse
 
 #Thanks！
+```{r}
+usa <-usa_county_wise1
+mapdata2<- map_data("state")
+mapdata3 <- left_join(mapdata2, usa , by = "region")
+mapdata4 <- mapdata3 %>% 
+  filter(!is.na(mapdata3$Confirmed))
+map1<- ggplot(mapdata3,aes(x= long, y=lat, group=group))+
+  geom_polygon(aes(fill= Confirmed), color="black")
+map1
+
+```

@@ -233,6 +233,19 @@ class:inverse
 class:inverse
 
 #Thanks！
+
+```r
+usa &lt;-usa_county_wise1
+mapdata2&lt;- map_data("state")
+mapdata3 &lt;- left_join(mapdata2, usa , by = "region")
+mapdata4 &lt;- mapdata3 %&gt;% 
+  filter(!is.na(mapdata3$Confirmed))
+map1&lt;- ggplot(mapdata3,aes(x= long, y=lat, group=group))+
+  geom_polygon(aes(fill= Confirmed), color="black")
+map1
+```
+
+&lt;img src="presentation_files/figure-html/unnamed-chunk-14-1.png" width="80%" /&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
