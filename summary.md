@@ -39,21 +39,21 @@ Then we plotted two graphs of the top 15 countries with the number of confirmed 
 
 
 
-## Predicting the probability of COVID-19 positive
+## Predicting positive results of COVID-19
 
-For this question, We want to use Temperature, Oxygen and Pulse Rate readings to predict the probability of a person who had COVID-19 positive. The data set contains 10,000 observations after removing NA, and we select some useful variables to predict.It should be noted that, result is binary categorical variable,so we choose Logistic Regression Model，then we get the probability of COVID-19 positive = 
+For this question, We want to use Temperature, Oxygen and Pulse Rate readings to predict the probability of a person who had COVID-19 positive. The data set contains 10,000 observations after removing NA, and we select some useful variables to predict.It should be noted that, result is binary categorical variable,so we choose Logistic Regression Model，then we get the probability of positive = 
 
 exp(32.4 + (-1.15) * Oxygen + 0.0145 * Pulse Rate + 0.729 * Temperature)
 ____________________________________________________________
 
 (1+exp(32.4 + (-1.15) * Oxygen +  0.0145	* Pulse Rate + 0.729 * Temperature))
 
-The probability of COVID-19 positive is proportional to temperature and Pulse Rate，and it is inversely proportional to Oxygen.(The reason why it's inversely proportional to Oxygen is because the Oxygen can keep blood in a high-energy state,through the lungs into the capillaries, has a certain role in human metabolism.)Below there are the meanings of slope and intercept:
-Slope - Oxygen: All else held constant, for every one percent increase in Oxygen, we would expect the probability of COVID-19 positive to be lower, on average, by 1.15 percent.
+The probability of positive is proportional to temperature and Pulse Rate，and it is inversely proportional to Oxygen.(The reason why it's inversely proportional to Oxygen is because the Oxygen can keep blood in a high-energy state,through the lungs into the capillaries, has a certain role in human metabolism.)Below there are the meanings of slope and intercept:
+Slope - Oxygen: All else held constant, for every one percent increase in Oxygen, we would expect the probability of positive to be lower, on average, by 1.15 percent.
 
-Slope - Pulse Rate: All else held constant,the Pulse Rate increases by one beat per minute, we would expect the probability of COVID-19 positive to be higher, on average, by 0.01447323 percent.
+Slope - Pulse Rate: All else held constant,the Pulse Rate increases by one beat per minute, we would expect the probability of positive to be higher, on average, by 0.0145 percent.
 
-Slope - Temperature: All else held constant, for every one degree Fahrenheit increase in Temperature, we would expect the probability of COVID-19 positive to be higher, on average, by 0.72863310 percent.
+Slope - Temperature: All else held constant, for every one degree Fahrenheit increase in Temperature, we would expect the probability of positive to be higher, on average, by 0.729 percent.
 
 Intercept: Doesn't make sense in context.
 

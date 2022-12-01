@@ -167,6 +167,7 @@ class:inverse,middle,center
 
 
 
+
 ---
 class:inverse
 
@@ -207,7 +208,7 @@ class:inverse
 
 ```{r echo=FALSE}
 qt <- qt %>%
-  select(Oxygen,PulseRate,Temperature,Result) %>%
+  select(Oxygen, PulseRate, Temperature,Result) %>%
   drop_na()
 
 set.seed(1234)
