@@ -23,6 +23,7 @@ library(knitr)
 library(xaringanthemer)
 library(lubridate)
 library(tidymodels)
+library(ggplot2)
 ```
 
 ```{r setup, include=FALSE}
@@ -128,7 +129,7 @@ Top 15 countries in the number of confirmed cases
 country_wise_latest %>%
   arrange(desc(Confirmed)) %>%
   slice(1:15) %>%
-  ggplot(aes(x = Confirmed , y = reorder(`Country/Region`,Confirmed),fill = `WHO Region`)) +
+  ggplot(aes(x = Confirmed , y = reorder(`region`,Confirmed),fill = `WHO Region`)) +
   geom_col()+
   geom_text(aes(label = Confirmed), 
             vjust = 0,
@@ -147,7 +148,7 @@ Top 15 countries in the number of deaths
 country_wise_latest %>%
   arrange(desc(Deaths)) %>%
   slice(1:15) %>%
-  ggplot(aes(x = Deaths , y = reorder(`Country/Region`,Deaths),fill = `WHO Region`)) +
+  ggplot(aes(x = Deaths , y = reorder(`region`,Deaths),fill = `WHO Region`)) +
   geom_col()+
   geom_text(aes(label = Deaths), 
             vjust = 0,
@@ -175,14 +176,24 @@ class:inverse
 
 ---
 class:inverse,middle,center
-#3.
+#3. The situation in US
+
 
 
 
 ---
 class:inverse
-
-
+In this part, we'll focus on the situation in USA. 
+```{r echo=FALSE}
+world <- read.csv("D:/Downloads/Project-covid/data/country_wise_latest.csv")
+mapdata<- map_data("world")
+mapdata <- left_join(mapdata, world , by = "region")
+mapdata1 <- mapdata %>% 
+  filter(! is.na(mapdata$Confirmed))
+map1<- ggplot(mapdata1,aes(x= long, y=lat, group=group))+
+  geom_polygon(aes(fill= Confirmed), color="black")
+map1
+```
 
 
 
