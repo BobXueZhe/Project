@@ -185,7 +185,7 @@ class:inverse,middle,center
 class:inverse
 In this part, we'll focus on the situation in USA. 
 ```{r echo=FALSE}
-world <- read.csv("D:/Downloads/Project-covid/data/country_wise_latest.csv")
+world <-country_wise_latest
 mapdata<- map_data("world")
 mapdata <- left_join(mapdata, world , by = "region")
 mapdata1 <- mapdata %>% 
