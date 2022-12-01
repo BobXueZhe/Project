@@ -13,9 +13,11 @@ To find more information of COVID-19, we got two dataset from the Kaggle website
 Firstly , we made two line graphs of confirmed cases and deaths over time, with colors representing different World Health Organization (WHO) regions of the world, such as Europe and Asia. These graphs give us a comprehensive understanding of the epidemic and let us find the direction of exploration.
 
 1.Confirmed case
+
 According to the graph “Number Of COVID-19 Cases Over Time”, in first three months of 2020, COVID-19 did not seen as a serious disease, and majority of patients came from Asia. After February 12, the growth rate in Asia slowed down and the rate of increase leveled off. In April, Americas region has recorded plenty of patients and became the hardest-hit area---the cumulative number of confirmed cases surpassed that of Asia, of which the United States is the country with the largest number of confirmed cases in the world. Meanwhile,the epidemic situation in Europe worsened, and the number of confirmed cases increased rapidly. In July, there has been 16480485 confirmed in the world, however, Americas region took up more than a half. The increasing of the confirmed cases in other region has been flat.
 
 2.Deaths
+
 The overall development trend of global cumulative death cases can be divided into three stages
 (1) From January 20 to March 8, the slow growth period: the main feature of this period is that the number of new deaths in a single day does not exceed 100, and the cumulative number of deaths worldwide is dominated by Asia (mainly China).
 (2) From March 9th to March 24th, the rapid growth period: the main feature of this period is that the number of new deaths in a single day is greater than 200 but not more than 2,000. The death rate in Europe has increased significantly. The global death cases are mainly distributed in various regions dominated by Europe and Asia.

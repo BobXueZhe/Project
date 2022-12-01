@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="Du Shi,Zhe Xue,Kunning Zhang,Wenhui Zhang,Zhaojun Meng" />
     <meta name="date" content="2022-12-01" />
-    <script src="libs/header-attrs-2.18/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.16/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -47,7 +47,7 @@ https://www.kaggle.com/datasets/rishanmascarenhas/covid19-temperatureoxygenpulse
 ---
 class: inverse
 
-#These are glimpses of our datasets
+#Glimpses of our datasets
 
 
 ```
@@ -64,8 +64,28 @@ class: inverse
 ## $ `New recovered`  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,…
 ## $ `WHO Region`     &lt;chr&gt; "Eastern Mediterranean", "Europe", "Africa", "Europe"…
 ```
+
+
+```
+## Rows: 56
+## Columns: 2
+## $ region    &lt;chr&gt; "alabama", "alaska", "american samoa", "arizona", "arkansas"…
+## $ Confirmed &lt;dbl&gt; 79129, 2623, 0, 163827, 37948, 458121, 44547, 48741, 14214, …
+```
+
 ---
 class: inverse
+
+
+```
+## Rows: 10,002
+## Columns: 5
+## $ ID          &lt;dbl&gt; 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …
+## $ Oxygen      &lt;dbl&gt; 98, 96, 95, 97, 88, 94, 88, 91, 93, 86, 94, 98, 86, 90, 93…
+## $ PulseRate   &lt;dbl&gt; 65, 92, 92, 56, 94, 100, 81, 79, 59, 117, 75, 46, 85, 55, …
+## $ Temperature &lt;dbl&gt; 95, 95, 99, 96, 98, 103, 104, 95, 101, 99, 95, 96, 98, 101…
+## $ Result      &lt;chr&gt; "Negative", "Negative", "Negative", "Negative", "Positive"…
+```
 
 
 ```
@@ -87,19 +107,9 @@ class: inverse
 ## $ `1 week % increase`      &lt;dbl&gt; 2.07, 17.00, 18.07, 2.60, 26.84, 13.16, 28.02…
 ## $ `WHO Region`             &lt;chr&gt; "Eastern Mediterranean", "Europe", "Africa", …
 ```
----
-class: inverse
 
 
-```
-## Rows: 10,002
-## Columns: 5
-## $ ID          &lt;dbl&gt; 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, …
-## $ Oxygen      &lt;dbl&gt; 98, 96, 95, 97, 88, 94, 88, 91, 93, 86, 94, 98, 86, 90, 93…
-## $ PulseRate   &lt;dbl&gt; 65, 92, 92, 56, 94, 100, 81, 79, 59, 117, 75, 46, 85, 55, …
-## $ Temperature &lt;dbl&gt; 95, 95, 99, 96, 98, 103, 104, 95, 101, 99, 95, 96, 98, 101…
-## $ Result      &lt;chr&gt; "Negative", "Negative", "Negative", "Negative", "Positive"…
-```
+
 ---
 
 class: inverse, center, middle
@@ -117,25 +127,25 @@ Graphing the number of confirmed cases and deaths.This gives us a big picture of
 class:inverse
 The totally trend of the confirmed cases and deaths number in 2020 is showed in following two graphs.
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-5-1.png" width="80%" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-6-1.png" width="80%" /&gt;
 
 
 ---
 class:inverse
 The totally trend of the confirmed cases number in 2020 is showed below.
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-6-1.png" width="80%" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-7-1.png" width="80%" /&gt;
 
 ---
 class:inverse
 Top 15 countries in the number of confirmed cases
 
-&lt;img src="presentation_files/figure-html/unnamed-chunk-7-1.png" width="80%" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-8-1.png" width="80%" /&gt;
 
 ---
 class:inverse
 Top 15 countries in the number of deaths
-&lt;img src="presentation_files/figure-html/unnamed-chunk-8-1.png" width="80%" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-9-1.png" width="80%" /&gt;
 
 From all these graphs above,it is clear that COVID-19 began to spread in the world in April of 2020 and Americas region is the hardest-hit area in both deaths and confirmed number.
 ---
@@ -161,14 +171,14 @@ class:inverse,middle,center
 ---
 class:inverse
 In this part, we'll first look at the worldwide distribute.
-&lt;img src="presentation_files/figure-html/unnamed-chunk-9-1.png" width="80%" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-10-1.png" width="80%" /&gt;
 So, it is clear that in the year of 2020, south America suffered from covid-19 the most, followed by southern Asia.
 
 
 
 
 ---
-&lt;img src="presentation_files/figure-html/unnamed-chunk-10-1.png" width="80%" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-11-1.png" width="80%" /&gt;
 From the map we can find that there at 4 remarkable bright blue area represented by the top four population states in America, suggesting us that it is better to live in less populous area when meeting series Epidemic disease.
 ---
 class:inverse,middle,center
@@ -220,7 +230,7 @@ class:inverse
 ---
 class:inverse
 #ROC curves
-&lt;img src="presentation_files/figure-html/unnamed-chunk-13-1.png" width="80%" /&gt;
+&lt;img src="presentation_files/figure-html/unnamed-chunk-14-1.png" width="80%" /&gt;
 
 ---
 class:inverse
