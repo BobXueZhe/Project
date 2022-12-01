@@ -40,6 +40,7 @@ covid_19_clean_complete <- read_csv("data/covid_19_clean_complete.csv")
 country_wise_latest <- read_csv("data/country_wise_latest.csv")
 qt <- read_csv("data/qt.csv")
 usa_county_wise1 <- read_csv("data/usa_county_wise1.csv")
+usa_county_wise2 <- read_csv("data/usa_county_wise2.csv")
 ```
 
 ```{r include=FALSE}
@@ -59,23 +60,29 @@ https://www.kaggle.com/datasets/rishanmascarenhas/covid19-temperatureoxygenpulse
 ---
 class: inverse
 
-#These are glimpses of our datasets
+#Glimpses of our datasets
 
 ```{r echo=FALSE}
 glimpse(full_grouped)
 ```
----
-class: inverse
 
 ```{r echo=FALSE}
-glimpse(country_wise_latest)
+glimpse(usa_county_wise2)
 ```
+
 ---
 class: inverse
 
 ```{r echo=FALSE}
 glimpse(qt)
 ```
+
+```{r echo=FALSE}
+glimpse(country_wise_latest)
+```
+
+
+
 ---
 
 class: inverse, center, middle
@@ -174,18 +181,16 @@ class:inverse
 
 
 
-
-
 ---
 class:inverse,middle,center
-#3. The situation in US
+#3. The map of covid distribution.
 
 
 
 
 ---
 class:inverse
-In this part, we'll focus on the situation in USA. 
+In this part, we'll first look at the worldwide distribute.
 ```{r echo=FALSE}
 world <-country_wise_latest
 mapdata<- map_data("world")
@@ -199,9 +204,26 @@ map2<-map1 + scale_fill_gradient(name= "covid worldwide", high = "red", low = "g
         axis.title.y = element_blank())
 map2
 ```
+So, it is clear that in the year of 2020, south America suffered from covid-19 the most, followed by southern Asia.
 
 
 
+
+---
+```{r echo=FALSE}
+usa <-usa_county_wise2
+mapdata2<- map_data("state")
+mapdata3 <- left_join(mapdata2, usa , by = "region")
+mapdata4 <- mapdata3 %>% 
+  filter(!is.na(mapdata3$Confirmed))
+map1<- ggplot(mapdata4,aes(x= long, y=lat, group=group))+
+  geom_polygon(aes(fill= Confirmed), color="black")
+map2<-map1 +
+  theme(axis.title.x = element_blank(),
+        axis.title.y = element_blank())
+map2
+```
+From the map we can find that there at 4 remarkable bright blue area represented by the top four population states in America, suggesting us that it is better to live in less populous area when meeting series Epidemic disease.
 ---
 class:inverse,middle,center
 #4.Predicting positive results of COVID-19 
@@ -276,14 +298,6 @@ qt_pred %>%
 class:inverse
 
 #Thanks！
-```{r}
-usa <-usa_county_wise1
-mapdata2<- map_data("state")
-mapdata3 <- left_join(mapdata2, usa , by = "region")
-mapdata4 <- mapdata3 %>% 
-  filter(!is.na(mapdata3$Confirmed))
-map1<- ggplot(mapdata3,aes(x= long, y=lat, group=group))+
-  geom_polygon(aes(fill= Confirmed), color="black")
-map1
+
 
 ```
