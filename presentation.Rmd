@@ -188,7 +188,7 @@ class:inverse
 
 ---
 class:inverse,middle,center
-#4.Predicting the probability of COVID-19 positive
+#4.Predicting positive results of COVID-19 
 
 ---
 class:inverse
@@ -219,7 +219,7 @@ tidy(qt_fit_1)
 
 ```
 
-The probability of COVID-19 positive = 
+The probability of positive = 
 
 exp(32.4 + (-1.15) * Oxygen +  0.0145	* Pulse Rate + 0.729 * Temperature)
 _______
@@ -257,6 +257,6 @@ qt_pred %>%
 ```
 
 ---
-
+class:inverse
 
 #Thanks！
