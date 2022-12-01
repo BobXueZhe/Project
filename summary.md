@@ -4,7 +4,6 @@ COVID-19
 # Summary
 
 ## ORIGIN OF COVID-19
-
 Three years ago, a new kind of pneumonia named COVID-19 appeared in Wuhan, the capital of China's Hubei province, and began to spread in the world. People who caught COVID-19 always have a high temperature or shivering and a continuous cough.Transmission rate appeared to escalate in mid-Tanuary 2020. As of 30 January 2020, approximately 8,243 cases have been confirmed. People who got COVID always have a fever and bad cough. Also,there are obvious changes in patients' vital signs.
 
 To find more information of COVID-19, we got two dataset from the Kaggle website. COVID-19 DATASET contains the number of confirmed, death, recovered and active people from January to the end of July in 2020 in different region. Covid-19 Temperature, Oxygen & Pulse Rate readings contains three vital signs of 10000 patients.
@@ -34,15 +33,20 @@ Then we plotted two graphs of the top 15 countries with the number of confirmed 
 
 
 
+## the map of Covid distribute 
+In this question, we want to use maps to introduce the distribute of covid-19 in the year of 2020. Then we use ggplot2 generate two maps of covid-19 distribution, which are worldwide distribution and USA distribution separately due to the reason that from the data USA was the country hold the largest confirmed value in the year of 2020.
 
+1.worldwide
 
+In this part, we use function map_data to give latitude and longitude to the countries over world. Then we left join the formed chart to the original chart by region, so the original chart can have latitudes and longitudes within it. After that we just choose countries who have confirmed data to form a map reflecting the number of confirmed cases in different countries depending on the color of the map. In the end we eliminate the figure of latitude and longitude along the x, y axis to make it simpler. In this case, area that does not have much confirmed number is represented by green and the other situation is represented by red. From the map we got, we can find that south America and Southern Asia have the largest affected value. What’s more, the population in these areas happen to be very high compared with other continents.
 
+2.America
 
+In this part we form a map of covid distribution of America using the same function. What we find in this map is that there are four main area affected by the covid most. These states are California, Texas, Florida, and New York, the top four populous states in America.
 
-
+So, the situation in America appeared the same trend with the world, more populous area means more confirmed cases. That tells us if we meet another epidemic disease next time, it is better move to area less populous during epidemic periods.
 
 ## Predicting positive results of COVID-19
-
 For this question, We want to use Temperature, Oxygen and Pulse Rate readings to predict the probability of a person who had COVID-19 positive. The data set contains 10,000 observations after removing NA, and we select some useful variables to predict.It should be noted that, result is binary categorical variable,so we choose Logistic Regression Model，then we get the probability of positive = 
 
 exp(32.4 + (-1.15) * Oxygen + 0.0145 * Pulse Rate + 0.729 * Temperature)

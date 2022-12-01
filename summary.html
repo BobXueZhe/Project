@@ -422,6 +422,36 @@ the following details, we would pay more attention to Americas
 region,especially USA. We will also use death and recovered variables to
 do some data visualization.</p>
 </div>
+<div id="the-map-of-covid-distribute" class="section level2">
+<h2>the map of Covid distribute</h2>
+<p>In this question, we want to use maps to introduce the distribute of
+covid-19 in the year of 2020. Then we use ggplot2 generate two maps of
+covid-19 distribution, which are worldwide distribution and USA
+distribution separately due to the reason that from the data USA was the
+country hold the largest confirmed value in the year of 2020.</p>
+<p>1.worldwide</p>
+<p>In this part, we use function map_data to give latitude and longitude
+to the countries over world. Then we left join the formed chart to the
+original chart by region, so the original chart can have latitudes and
+longitudes within it. After that we just choose countries who have
+confirmed data to form a map reflecting the number of confirmed cases in
+different countries depending on the color of the map. In the end we
+eliminate the figure of latitude and longitude along the x, y axis to
+make it simpler. In this case, area that does not have much confirmed
+number is represented by green and the other situation is represented by
+red. From the map we got, we can find that south America and Southern
+Asia have the largest affected value. What’s more, the population in
+these areas happen to be very high compared with other continents.</p>
+<p>2.America</p>
+<p>In this part we form a map of covid distribution of America using the
+same function. What we find in this map is that there are four main area
+affected by the covid most. These states are California, Texas, Florida,
+and New York, the top four populous states in America.</p>
+<p>So, the situation in America appeared the same trend with the world,
+more populous area means more confirmed cases. That tells us if we meet
+another epidemic disease next time, it is better move to area less
+populous during epidemic periods.</p>
+</div>
 <div id="predicting-positive-results-of-covid-19" class="section level2">
 <h2>Predicting positive results of COVID-19</h2>
 <p>For this question, We want to use Temperature, Oxygen and Pulse Rate
