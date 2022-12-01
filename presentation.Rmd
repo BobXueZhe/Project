@@ -210,6 +210,7 @@ So, it is clear that in the year of 2020, south America suffered from covid-19 t
 
 
 ---
+class:inverse
 ```{r echo=FALSE}
 usa <-usa_county_wise2
 mapdata2<- map_data("state")
