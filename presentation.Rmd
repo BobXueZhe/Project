@@ -175,8 +175,6 @@ class:inverse
 
 
 
-
-
 ---
 class:inverse,middle,center
 #3. The situation in US
