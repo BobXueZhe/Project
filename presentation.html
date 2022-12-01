@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="author" content="Du Shi,Zhe Xue,Kunning Zhang,Wenhui Zhang,Zhaojun Meng" />
     <meta name="date" content="2022-12-01" />
-    <script src="libs/header-attrs-2.18/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.16/header-attrs.js"></script>
     <link rel="stylesheet" href="xaringan-themer.css" type="text/css" />
   </head>
   <body>
@@ -233,18 +233,6 @@ class:inverse
 class:inverse
 
 #Thanks！
-
-```r
-usa &lt;-usa_county_wise1
-mapdata2&lt;- map_data("state")
-mapdata3 &lt;- left_join(mapdata2, usa , by = "region")
-mapdata4 &lt;- mapdata3 %&gt;% 
-  filter(!is.na(mapdata3$Confirmed))
-map1&lt;- ggplot(mapdata3,aes(x= long, y=lat, group=group))+
-  geom_polygon(aes(fill= Confirmed), color="black")
-map1
-```
-
 &lt;img src="presentation_files/figure-html/unnamed-chunk-14-1.png" width="80%" /&gt;
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
