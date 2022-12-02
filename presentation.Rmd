@@ -181,7 +181,7 @@ The recovery rate of the COVID-19 in 2022 for all countries in the world with da
 ```{r echo=FALSE, warning=FALSE}
 worldometer_data %>% ggplot(aes(x = `Country/Region`, 
 y = TotalRecovered / TotalCases, ))+ 
-geom_bar(stat='identity',position='dodge')+
+geom_point(stat='identity',position='dodge')+
   labs(
     x = 'Selected Country',
     y = 'Percent of recovery',
@@ -218,7 +218,6 @@ labs(y = 'Selected Country',
      x = 'Percent of recovery',
      title = 'Recovery rate of COVID-19 in different countries')
 ```
-
 ---
 class:inverse,middle,center
 #3. The map of covid distribution.

@@ -24,14 +24,8 @@ The overall development trend of global cumulative death cases can be divided in
 
 Then we plotted two graphs of the top 15 countries with the number of confirmed cases and deaths and found that Americas region is the hardest-hit area in both deaths and confirmed number as expected. So in the following details, we would pay more attention to Americas region,especially USA. We will also use death and recovered variables to do some data visualization.
 
-
-
-
-
-
-
-
-
+## Recovery rate of COVID-19 in different countries
+We have retrieved the number of new crown infections and the number of recovered people in various countries in the world in 2022, and the recovery rate of the new crown virus can be obtained from our obtained data. In the figure, we can see that the recovery rates of different countries are not the same or even very different. Next, we will analyse the recovery rate in different regions. Then we extracted the data of countries with low recovery rate and countries with high recovery rate, and made a bar picture to clearly show that the recovery rate of the lowest country is even less than 10%, while that of countries with high recovery rate is even more than 98%, which is a very large range. Before data collation, it was speculated whether the recovery rate was related to the country's economic and welfare policies. However, after obtaining different recovery rates and using Internet search engines, the data was not the same. Among countries with higher recovery rates, the per capital GDP of regions with higher recovery rates even reached 51875 dollars per person, while that of regions with lower GDP was only 787 dollars. Countries with low recovery rates have the same situation. It can be seen that recovery rates are not closely related to the national economy. In the process of data selection, we can clearly see that more countries have higher recovery rates from the data of all countries. Therefore, we can get that COVID-19 is not 100% fatal, and if it is unfortunately infected, there will be a greater chance of recovery, of course, it also depends on your region. In the process of analysing this problem, it is a very intuitive way to use r language to analyse and make icons.
 
 ## the map of Covid distribute 
 In this question, we want to use maps to introduce the distribute of covid-19 in the year of 2020. Then we use ggplot2 generate two maps of covid-19 distribution, which are worldwide distribution and USA distribution separately due to the reason that from the data USA was the country hold the largest confirmed value in the year of 2020.
@@ -65,4 +59,8 @@ Intercept: Doesn't make sense in context.
 
 Then we make predictions for test data,plot the ROC curves,and calculate the areas under the ROC curves, we find model performs well, because it has o.98 areas under the line,is close to 1.
 
+## DATA
+All of the data we use are found on Kaggle.
 
+https://www.kaggle.com/datasets/imdevskp/corona-virus-report?search=COVID-19+DATASET
+https://www.kaggle.com/datasets/rishanmascarenhas/covid19-temperatureoxygenpulse-rate
