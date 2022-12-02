@@ -87,10 +87,9 @@ glimpse(country_wise_latest)
 
 class: inverse, center, middle
 #ORIGIN
-Three years ago,a new coronavirus designated 2019-nCoV was first identified in Wuhan, the capital of China's Hubei province.
+A new coronavirus designated 2019-nCoV was first identified in 2019.
 As of 30 January 2020, approximately 8,243 cases have been confirmed.
-People who got COVID always have a fever and bad cough.
-Also,there are obvious changes in patients' vital signs.
+There are obvious changes in patients' vital signs.
 ---
 class: inverse, middle, center
 #1.World overview.
@@ -168,24 +167,61 @@ country_wise_latest %>%
 ```
 
 From all these graphs above,it is clear that COVID-19 began to spread in the world in April of 2020 and Americas region is the hardest-hit area in both deaths and confirmed number.
+
 ---
 class:inverse,middle,center
 
-#2.
+#2.Recovery rate of COVID-19 in different countries
+Recovery rates vary greatly from different country/Region
+---
+class:inverse
 
+The recovery rate of the COVID-19 in 2022 for all countries in the world with data
 
-
+```{r echo=FALSE, warning=FALSE}
+worldometer_data %>% ggplot(aes(x = `Country/Region`, 
+y = TotalRecovered / TotalCases, ))+ 
+geom_bar(stat='identity',position='dodge')+
+  labs(
+    x = 'Selected Country',
+    y = 'Percent of recovery',
+    title = 'Recovery rate of COVID-19 in different countries')+
+  theme(axis.text.x = element_blank())
+```
 
 ---
 class:inverse
 
+Countries with low COVID-19 recovery rate
 
+```{r echo=FALSE}
+newdata<-subset(worldometer_data,TotalRecovered / TotalCases<0.25)
+ggplot(newdata,aes(y = `Country/Region`, 
+x = TotalRecovered / TotalCases))+ 
+geom_bar(stat='identity',position='dodge', fill = 'Firebrick')+
+labs(y = 'Selected Country',
+     x = 'Percent of recovery',
+     title = 'Recovery rate of COVID-19 in different countries')
+```
+
+---
+class:inverse
+
+Countries with high COVID-19 recovery rate
+
+```{r echo=FALSE}
+newdata<-subset(worldometer_data,TotalRecovered / TotalCases>0.98)
+ggplot(newdata,aes(y = `Country/Region`, 
+x = TotalRecovered / TotalCases))+ 
+geom_bar(stat='identity',position='dodge', fill= 'Turquoise4')+
+labs(y = 'Selected Country',
+     x = 'Percent of recovery',
+     title = 'Recovery rate of COVID-19 in different countries')
+```
 
 ---
 class:inverse,middle,center
 #3. The map of covid distribution.
-
-
 
 
 ---
