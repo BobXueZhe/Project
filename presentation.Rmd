@@ -229,7 +229,7 @@ map2
 From the map we can find that there at 4 remarkable bright blue area represented by the top four most populous states in America, which are California, Texas, Florida, and New York separately.
 ---
 class:inverse,middle,center
-#4.Predicting positive results of COVID-19 
+#4.Predicting the probability of positive results
 
 ---
 class:inverse

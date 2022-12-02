@@ -46,7 +46,7 @@ In this part we form a map of covid distribution of America using the same funct
 
 So, the situation in America appeared the same trend with the world, more populous area means more confirmed cases. That tells us if we meet another epidemic disease next time, it is better move to area less populous during epidemic periods.
 
-## Predicting positive results of COVID-19
+## Predicting the probability of positive results
 For this question, We want to use Temperature, Oxygen and Pulse Rate readings to predict the probability of a person who had COVID-19 positive. The data set contains 10,000 observations after removing NA, and we select some useful variables to predict.It should be noted that, result is binary categorical variable,so we choose Logistic Regression Model，then we get the probability of positive = 
 
 exp(32.4 + (-1.15) * Oxygen + 0.0145 * Pulse Rate + 0.729 * Temperature)
@@ -63,6 +63,6 @@ Slope - Temperature: All else held constant, for every one degree Fahrenheit inc
 
 Intercept: Doesn't make sense in context.
 
-Then we make predictions for test data,plot the ROC curves,and calculate the areas under the ROC curves, we find model performs good, because it has o.98 areas under the line,is close to 1.
+Then we make predictions for test data,plot the ROC curves,and calculate the areas under the ROC curves, we find model performs well, because it has o.98 areas under the line,is close to 1.
 
 
